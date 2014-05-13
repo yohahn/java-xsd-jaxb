@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testCase xmlns="http://www.yohahnandcompany.com/testCase"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.yohahnandcompany.com/testCase testCase.xsd"
+          name="test case 1">
+    <testStep name="test step 1">
+        <inputMessage>
+            <headerFile>some/loc/header_1_1</headerFile>
+            <payloadFile>some/loc/payload_1_1</payloadFile>
+            <expectedOutput xsi:type="expectedMessage">
+                <message>ACK</message>
+            </expectedOutput>
+        </inputMessage>
+        <inputMessage>
+            <headerFile>some/loc/header_1_2</headerFile>
+            <payloadFile>some/loc/payload_1_2</payloadFile>
+            <expectedOutput xsi:type="expectedDBChange">
+                <dbChange>TBL_LOAN.APPROVED=TRUE</dbChange>
+            </expectedOutput>
+        </inputMessage>
+    </testStep>
+    <testStep name="test step 2">
+        <inputMessage>
+            <headerFile>some/loc/header_2_1</headerFile>
+            <payloadFile>some/loc/payload_2_1</payloadFile>
+            <expectedOutput xsi:type="expectedMessage">
+                <message>ERR</message>
+            </expectedOutput>
+        </inputMessage>
+    </testStep>
+</testCase>

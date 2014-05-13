@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:target="http://www.yohahnandcompany.com/testCase"
+           targetNamespace="http://www.yohahnandcompany.com/testCase"
+           elementFormDefault="qualified">
+
+    <xs:element name="testCase" type="target:testCase"/>
+
+    <xs:complexType name="testCase">
+        <xs:sequence>
+            <xs:element name="testStep" type="target:testStep" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="testStep">
+        <xs:sequence>
+            <xs:element name="inputMessage" type="target:inputMessage" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="inputMessage">
+        <xs:sequence>
+            <xs:element name="headerFile" type="xs:string"/>
+            <xs:element name="payloadFile" type="xs:string"/>
+            <xs:element name="expectedOutput" type="target:expectedOutput"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="expectedOutput" abstract="true">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="expectedMessage">
+        <xs:complexContent>
+            <xs:extension base="target:expectedOutput">
+                <xs:sequence>
+                    <xs:element name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="expectedDBChange">
+        <xs:complexContent>
+            <xs:extension base="target:expectedOutput">
+                <xs:sequence>
+                    <xs:element name="dbChange" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
