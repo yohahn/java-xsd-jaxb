@@ -40,5 +40,5 @@ import javax.xml.bind.annotation.XmlType;
 })
 public abstract class ExpectedOutput {
 
-
+    abstract void expect();
 }

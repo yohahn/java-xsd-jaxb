@@ -68,4 +68,8 @@ public class ExpectedMessage
         this.message = value;
     }
 
+    @Override
+    void expect() {
+        System.out.println("\t\t\tmessage: "+getMessage());
+    }
 }

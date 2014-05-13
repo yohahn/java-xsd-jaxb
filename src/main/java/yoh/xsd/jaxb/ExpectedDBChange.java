@@ -68,4 +68,8 @@ public class ExpectedDBChange
         this.dbChange = value;
     }
 
+    @Override
+    void expect() {
+        System.out.println("\t\t\tdbChange: "+getDbChange());
+    }
 }

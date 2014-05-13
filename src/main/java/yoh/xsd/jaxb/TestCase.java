@@ -101,4 +101,10 @@ public class TestCase {
         this.name = value;
     }
 
+    public void runTestSteps() {
+        System.out.println("Test Case: "+getName());
+        for (TestStep step : getTestStep()) {
+            step.run();
+        }
+    }
 }

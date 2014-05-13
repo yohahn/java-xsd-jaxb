@@ -122,4 +122,12 @@ public class InputMessage {
         this.expectedOutput = value;
     }
 
+    public void sendAndExpect() {
+        System.out.println("\t\tSending...");
+        System.out.println("\t\t\theader: "+getHeaderFile());
+        System.out.println("\t\t\tpayload: "+getPayloadFile());
+
+        System.out.println("\t\tExpecting...");
+        getExpectedOutput().expect();
+    }
 }

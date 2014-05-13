@@ -101,4 +101,12 @@ public class TestStep {
         this.name = value;
     }
 
+    public void run() {
+        System.out.println("\tTest Step: "+getName());
+        for (InputMessage input : getInputMessage()) {
+            input.sendAndExpect();
+            System.out.println("");
+        }
+        System.out.println("\t--------------------------------------------------");
+    }
 }
